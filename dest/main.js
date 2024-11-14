@@ -49,3 +49,26 @@ function scrollToSection() {
   });
 }
 scrollToSection();
+
+// Slider product
+function handleSliderProduct() {
+  var swiper = new Swiper(".slider__list", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    // breakpoints{
+    //   "@576":{
+    //     slidesPerView:1,
+    //   },
+    //   "@992":{
+    //     slidesPerView:3,
+    //   }
+    // },
+  });
+}
+window.addEventListener("load", function () {
+  handleSliderProduct();
+});
