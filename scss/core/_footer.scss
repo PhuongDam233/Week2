@@ -18,22 +18,7 @@
     .desc {
       padding-bottom: 16px;
     }
-    #from {
-      background-color: var(--white-cl);
-      padding: 7px 0px 7px 17px;
-      width: 100%;
-      display: flex;
-      input {
-        width: 100%;
-        outline: none;
-      }
-      button {
-        padding: 0 18px;
-        cursor: pointer;
-        background-color: var(--white-cl);
-        outline: none;
-      }
-    }
+
     .iconsocial {
       padding: 20px 0;
       @include mid(true);

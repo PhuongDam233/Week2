@@ -1,3 +1,4 @@
+// Handle tabs
 function handleTabsNew() {
   let tabs = document.querySelectorAll(".sctabs__tab-item"),
     listNews = document.querySelectorAll(".sctabs__wrap .article__list");
@@ -25,3 +26,26 @@ function handleTabsNew() {
   });
 }
 handleTabsNew();
+
+// //FORM VALIDATE
+function validateForm() {
+  const form = document.querySelector(".formcontact");
+  // submit form
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+  });
+}
+validateForm();
+
+// Scroll To
+function scrollToSection() {
+  const btn = document.querySelector(".btnexplore"),
+    section = document.querySelector(".sctabs");
+  btn.addEventListener("click", function () {
+    window.scrollTo({
+      top: section.offsetTop,
+      behavior: "smooth",
+    });
+  });
+}
+scrollToSection();
