@@ -1,26 +1,44 @@
 @font-face {
+  font-family: "pm";
+  src: url("../fonts/Poppins-Medium.woff2") format("woff2"),
+    url("../fonts/Poppins-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
   font-family: "pr";
-  src: url("../fonts/ProximaNova-Regular.woff2") format("woff2"),
-    url("../fonts/ProximaNova-Regular.woff") format("woff");
+  src: url("../fonts/Poppins-Regular.woff2") format("woff2"),
+    url("../fonts/Poppins-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: fallback;
 }
 
 @font-face {
   font-family: "pb";
-  src: url("../fonts/ProximaNova-Bold.woff2") format("woff2"),
-    url("../fonts/ProximaNova-Bold.woff") format("woff");
+  src: url("../fonts/Poppins-Bold.woff2") format("woff2"),
+    url("../fonts/Poppins-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
-  font-display: swap;
+  font-display: fallback;
 }
 
 @font-face {
-  font-family: "pbe";
-  src: url("../fonts/ProximaNovaA-Extrabld.woff") format("woff2"),
-    url("../fonts/ProximaNovaA-Extrabld.woff2") format("woff");
-  font-weight: bold;
+  font-family: "lr";
+  src: url("../fonts/Lora-Regular.woff2") format("woff2"),
+    url("../fonts/Lora-Regular.woff") format("woff");
+  font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "lm";
+  src: url("../fonts/Lora-Medium.woff2") format("woff2"),
+    url("../fonts/Lora-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: fallback;
 }
