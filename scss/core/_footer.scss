@@ -1,0 +1,58 @@
+.footer {
+  .container-fluid {
+    @include mid(true);
+    background-color: var(--black-cl);
+    color: var(--white-cl);
+    flex-direction: column;
+    padding: 50px 15px 10px 15px;
+  }
+  .textbox {
+    width: 100%;
+    max-width: 465px;
+    .heading {
+      font-size: var(--fs-text-footer);
+      line-height: var(--lh-text-footer);
+      padding-bottom: 8px;
+      font-family: lr;
+    }
+    .desc {
+      padding-bottom: 16px;
+    }
+    #from {
+      background-color: var(--white-cl);
+      padding: 7px 0px 7px 17px;
+      width: 100%;
+      display: flex;
+      input {
+        width: 100%;
+        outline: none;
+      }
+      button {
+        padding: 0 18px;
+        cursor: pointer;
+        background-color: var(--white-cl);
+        outline: none;
+      }
+    }
+    .iconsocial {
+      padding: 20px 0;
+      @include mid(true);
+      gap: 16px;
+    }
+    p {
+      a {
+        color: var(--white-cl);
+        text-decoration: underline;
+      }
+    }
+  }
+  @include xs {
+    .textbox {
+      max-width: 360px;
+      text-align: initial;
+      .iconsocial {
+        justify-content: flex-start;
+      }
+    }
+  }
+}
