@@ -1,0 +1,110 @@
+:root {
+  /* MaxWidth Of Page, Container-Fluid, Container, Gutter*/
+  --max-width-page: 2560px;
+  --max-width-container-fluid: 1920px;
+  --max-width-container: 1410px;
+  --gap: 20px;
+
+  /* Colors Variable */
+  --white-cl: #ffffff;
+  --black-cl: #141414;
+  --gray-light-cl: #d1ceca;
+  --blue-cl: #054e4a;
+  --red-cl: #a42003;
+  --red-light-cl: #d63a2f;
+  --gray-cl: #666666;
+  --gray-l-cl: #d1ceca;
+  --text-carousel-cl: #cccccc;
+  --brown-cl: #6e331a;
+  --background-contact-cl: #f6f2ee;
+
+  // Fontsize - Lineheight Variable
+  --fs-h1: 7.2rem;
+  --lh1-h1: 9rem;
+
+  --fs-h2: 3.6rem;
+  --lh1-h2: 4.8rem;
+
+  --fs-h3: 2.4rem;
+  --lh-h3: 3.8rem;
+
+  --fs-body-l: 2rem;
+  --lh-body-l: 3.2rem;
+
+  --fs-body: 1.6rem;
+  --lh-body: 2.4rem;
+
+  --fs-textlabel: 1.4rem;
+  --lh-textlabel: 2.2rem;
+
+  --fs-price-sale: 1.6rem;
+
+  --fs-text-carousel: 7.4rem;
+  --lh-text-carousel: 9rem;
+
+  --fs-text-footer: 3.2rem;
+  --lh-text-footer: 4.2rem;
+
+  --fs-text-large: 5.6rem;
+  --lh-text-large: 8rem;
+
+  --fs-text-s: 3.2rem;
+  --lh-text-s: 5.6rem;
+
+  --lh-name-product: 2.59rem;
+  --lh-price-product: 2.25rem;
+
+  --ls: 0rem;
+
+  // General Variable
+  --height-header: 78px;
+  --height-header-top: 34px;
+  --height-button: 42px;
+  --pd-section: 120px;
+
+  // Timing Transition Variable
+  --duration: 0.3s;
+  --cubic: cubic-bezier(0.59, 0.29, 0.15, 0.93);
+
+  // Responsive
+  @include md {
+    --container-max-width: 1140px;
+  }
+  @include sm {
+    --container-max-width: 960px;
+
+    --fs-h3: 2rem;
+    --lh-h3: 3.04rem;
+
+    --fs-text-large: 4.6rem;
+    --lh-text-large: 6.4rem;
+  }
+  @include xs {
+    --container-max-width: 720px;
+    --gap: 16px;
+
+    --fs-h1: 5.6rem;
+    --lh1-h1: 7.68rem;
+
+    --fs-h2: 2.8rem;
+    --lh1-h2: 3.84rem;
+
+    --lh-body-l: 2.56rem;
+
+    --fs-body: 1.7rem;
+    --lh-body: 1.9rem;
+
+    --fs-price-sale: 1.5rem;
+
+    --fs-text-carousel: 6rem;
+    --lh-text-carousel: 6.4rem;
+
+    --fs-text-footer: 2.4rem;
+    --lh-text-footer: 3.36rem;
+  }
+  @include xxs {
+    --container-max-width: 100%;
+    --height-header: 83px;
+    --height-header-top: 40px;
+  }
+}

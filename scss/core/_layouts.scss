@@ -1,0 +1,41 @@
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
+body {
+  width: 100%;
+  max-width: var(--max-width-page);
+  margin: auto;
+  scroll-behavior: smooth;
+  font-family: pr;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  &.--disable-scroll {
+    height: 100vh;
+    overflow: hidden;
+  }
+  .container-fluid {
+    width: 100%;
+    height: 100%;
+    max-width: var(--max-width-container-fluid);
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+  }
+  .container {
+    width: 100%;
+    height: 100%;
+    max-width: var(--max-width-container);
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .main {
+    section {
+    }
+  }
+  @include lg {
+    .container {
+      padding-left: var(--gap);
+      padding-right: var(--gap);
+    }
+  }
+}

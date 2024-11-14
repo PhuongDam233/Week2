@@ -1,0 +1,16 @@
+// SCSS DEMO (Xoá khi bắt đầu dự án)
+.homepage {
+  .main {
+    .container {
+      height: 100vh;
+      @include mid(true);
+    }
+    .heading {
+      width: max-content;
+      @include text(pb, var(--fs-h1), var(--lh-h1), var(--black-cl));
+      span {
+        color: var(--main-cl);
+      }
+    }
+  }
+}
