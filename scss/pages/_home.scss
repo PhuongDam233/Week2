@@ -171,3 +171,30 @@
     }
   }
 }
+.sctext {
+  padding: 150px 0px;
+  background-color: var(--white-cl);
+  overflow-x: hidden;
+  opacity: 20%;
+  .txcarousel {
+    width: 100%;
+    @include midPositonY;
+    @include mid(true);
+    left: -100%;
+    animation: move linear 12.5s infinite;
+    gap: 50px;
+    white-space: nowrap;
+    span {
+      text-transform: uppercase;
+      font-size: var(--fs-text-carousel);
+      line-height: var(--lh-text-carousel);
+      font-family: lr;
+    }
+  }
+  @include xs {
+    padding: 48px 0px;
+    .txcarousel {
+      min-height: 64px;
+    }
+  }
+}
