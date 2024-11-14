@@ -161,6 +161,9 @@
     padding-bottom: 50px;
   }
   .slider__list {
+    .swiper-wrapper {
+      display: flex;
+    }
     .article__list-item {
       .imgwrap {
         img {
