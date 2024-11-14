@@ -1,0 +1,56 @@
+.header {
+  height: var(--height-header);
+  &__top {
+    background-color: var(--black-cl);
+    height: var(--height-header-top);
+    padding: 0 20px;
+    @include dflexObj(flex, center, space-between);
+    color: var(--white-cl);
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    &-info {
+      width: 100%;
+      @include dflexObj(Flex, center, space-between);
+    }
+    &-control {
+      display: none;
+    }
+  }
+  &__bottom {
+    height: calc(var(--height-header) - var(--height-header-top));
+    background-color: var(--white-cl);
+    p {
+      font-size: 3.2rem;
+      line-height: 2.4rem;
+      font-family: lm;
+      text-transform: uppercase;
+    }
+    @include mid(true);
+  }
+  @include xxs {
+    &__top {
+      @include dflexObj(flex, center, center);
+      .number {
+        display: none;
+      }
+      &-control {
+        height: 100%;
+        // @include midPositonY;
+        display: flex;
+        align-items: center;
+        .ctr {
+          position: absolute;
+          &.--prev {
+            left: 15px;
+            img {
+              transform: rotate(180deg);
+            }
+          }
+          &.--next {
+            right: 15px;
+          }
+        }
+      }
+    }
+  }
+}
