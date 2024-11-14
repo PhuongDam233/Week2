@@ -161,11 +161,14 @@
     padding-bottom: 50px;
   }
   .slider__list {
+    .swiper-slide {
+      width: initial;
+    }
     .article__list-item {
       .imgwrap {
         img {
-          width: initial;
-          max-width: initial;
+          // width: initial;
+          // max-width: initial;
         }
       }
     }
