@@ -155,3 +155,19 @@
     }
   }
 }
+.scslider {
+  padding-top: 50px;
+  .textbox {
+    padding-bottom: 50px;
+  }
+  .slider__list {
+    .article__list-item {
+      .imgwrap {
+        img {
+          width: initial;
+          max-width: initial;
+        }
+      }
+    }
+  }
+}
