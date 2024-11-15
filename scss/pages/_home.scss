@@ -324,7 +324,7 @@
   @include size(100%, 100%);
   position: relative;
   background-size: 100% 100%;
-  background-image: url("/img/banner.jpg");
+  background-image: url("../img/banner.jpg");
   .textbox {
     position: relative;
     z-index: 3;
@@ -345,7 +345,7 @@
   }
   @include xs {
     padding: 226px 0;
-    background-image: url("/img/banner-mob.jpg");
+    background-image: url("../img/banner-mob.jpg");
   }
 }
 .scservice {
