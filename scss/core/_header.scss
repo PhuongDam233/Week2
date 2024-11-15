@@ -11,8 +11,15 @@
     &-info {
       width: 100%;
       @include dflexObj(Flex, center, space-between);
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-shrink: initial;
+        width: initial !important;
+      }
     }
-    &-control {
+    .ctr {
       display: none;
     }
   }
@@ -29,26 +36,38 @@
   }
   @include xxs {
     &__top {
-      @include dflexObj(flex, center, center);
-      .number {
-        display: none;
+      &-info {
+        @include dflexObj(Flex, center, initial);
+        .swiper-slide {
+          @include mid(true);
+          flex-shrink: 0;
+          width: 100% !important;
+        }
+        .number {
+          order: 2;
+        }
+        .adress {
+          order: 1;
+        }
       }
-      &-control {
-        height: 100%;
-        // @include midPositonY;
+      .ctr {
         display: flex;
-        align-items: center;
-        .ctr {
-          position: absolute;
-          &.--prev {
-            left: 15px;
-            img {
-              transform: rotate(180deg);
-            }
+        position: absolute;
+        &.--prev {
+          left: 15px;
+          img {
+            transform: rotate(180deg);
           }
-          &.--next {
-            right: 15px;
-          }
+        }
+        &.--next {
+          right: 15px;
+        }
+      }
+      .swiper-button-prev,
+      .swiper-button-next {
+        &::after {
+          color: var(--white-cl);
+          font-size: 16px;
         }
       }
     }

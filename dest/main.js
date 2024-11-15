@@ -69,9 +69,32 @@ function handleSliderProduct() {
       767: {
         slidesPerView: 3,
       },
+      992: {
+        slidesPerView: 4,
+      },
+    },
+  });
+}
+
+// Header slider
+function handleHeader() {
+  var swiper = new Swiper(".header__top", {
+    slidesPerView: 1,
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
   });
 }
 window.addEventListener("load", function () {
   handleSliderProduct();
+});
+
+// resize window
+window.addEventListener("resize", function () {
+  let wwindow = window.innerWidth;
+  if (wwindow < 576) {
+    handleHeader();
+  }
 });
