@@ -54,19 +54,22 @@ scrollToSection();
 function handleSliderProduct() {
   var swiper = new Swiper(".slider__list", {
     slidesPerView: 4,
-    spaceBetween: 30,
+    spaceBetween: 10,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
     },
-    // breakpoints{
-    //   "@576":{
-    //     slidesPerView:1,
-    //   },
-    //   "@992":{
-    //     slidesPerView:3,
-    //   }
-    // },
+    breakpoints: {
+      350: {
+        slidesPerView: 1.5,
+      },
+      576: {
+        slidesPerView: 2,
+      },
+      767: {
+        slidesPerView: 3,
+      },
+    },
   });
 }
 window.addEventListener("load", function () {
