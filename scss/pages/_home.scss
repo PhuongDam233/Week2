@@ -175,7 +175,7 @@
     width: 100%;
     @include midPositonY;
     @include mid(true);
-    left: -100%;
+    right: -100%;
     animation: move linear 12.5s infinite;
     gap: 50px;
     white-space: nowrap;

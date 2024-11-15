@@ -28,14 +28,4 @@ body {
     margin-right: auto;
     margin-left: auto;
   }
-  .main {
-    section {
-    }
-  }
-  @include lg {
-    .container {
-      padding-left: var(--gap);
-      padding-right: var(--gap);
-    }
-  }
 }
