@@ -54,12 +54,27 @@
     width: 100%;
     height: 1px;
     background-color: var(--white-cl);
+    transform-origin: left;
+    transform: scaleX(1);
+    @include transition(transform);
+  }
+  &:hover {
+    &::after {
+      transform-origin: right;
+      transform: scaleX(0);
+    }
   }
 }
 .btnlink {
   color: var(--black-cl);
   padding: 9px 41px;
   border: 1px solid var(--gray-l-cl);
+  @include transition;
+  &:hover {
+    background-color: var(--gray-l-cl);
+    opacity: 0.8;
+    border: 1px solid var(--black-cl);
+  }
 }
 // col
 .col {
