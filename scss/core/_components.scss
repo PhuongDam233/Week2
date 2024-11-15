@@ -106,6 +106,8 @@
         color: var(--white-cl);
         font-family: pb;
         width: fit-content;
+        font-size: var(--fs-textlabel);
+        line-height: var(--lh-textlabel-s);
         &.--red {
           background-color: var(--red-cl);
           padding: 8px 6px;
@@ -150,6 +152,18 @@
         .original {
           text-decoration: line-through;
           color: var(--gray-cl);
+        }
+      }
+    }
+  }
+  @include xs {
+    .imgwrap {
+      .tag {
+        span {
+          padding: 2px 9px;
+          &.--red {
+            padding: 4px 8px;
+          }
         }
       }
     }

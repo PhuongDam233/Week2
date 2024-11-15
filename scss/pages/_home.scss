@@ -7,11 +7,18 @@
     @include size(100%, 100%);
     p {
       color: var(--white-cl);
+      font-size: var(--fs-p-hero);
+      line-height: var(--lh-p-hero);
     }
   }
   picture {
     img {
       width: 100%;
+    }
+  }
+  @include xs {
+    .textbox {
+      gap: 12px;
     }
   }
 }
@@ -95,12 +102,18 @@
     .textbox {
       flex-direction: column;
       text-align: center;
+      padding-bottom: 32px;
       .heading {
         padding-bottom: 37px;
       }
       .sctabs__tab {
         margin-left: auto;
         margin-right: auto;
+      }
+    }
+    .sctabs__wrap {
+      .article__list {
+        row-gap: 26px;
       }
     }
   }

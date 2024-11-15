@@ -54,20 +54,20 @@
         display: flex;
         position: absolute;
         &.--prev {
-          left: 15px;
+          left: 5px;
           img {
             transform: rotate(180deg);
           }
         }
         &.--next {
-          right: 15px;
+          right: 5px;
         }
       }
       .swiper-button-prev,
       .swiper-button-next {
         &::after {
           color: var(--white-cl);
-          font-size: 16px;
+          font-size: 12px;
         }
       }
     }
