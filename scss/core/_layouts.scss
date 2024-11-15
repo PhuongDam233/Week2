@@ -28,7 +28,11 @@ body {
     margin-right: auto;
     margin-left: auto;
   }
-  @include lg {
+  .main {
+    section {
+    }
+  }
+  @include xs {
     .container {
       padding-left: var(--gap);
       padding-right: var(--gap);

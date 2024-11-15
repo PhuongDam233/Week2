@@ -102,9 +102,11 @@
       display: flex;
       flex-direction: column;
       span {
-        padding: 0px 7px;
+        padding: 3px 9px;
         color: var(--white-cl);
         font-family: pb;
+        font-size: var(--fs-texttag);
+        line-height: var(--lh-texttag);
         width: fit-content;
         font-size: var(--fs-textlabel);
         line-height: var(--lh-textlabel-s);
@@ -211,9 +213,9 @@
 // keyframes
 @keyframes move {
   from {
-    left: -100%;
+    right: -100%;
   }
   to {
-    left: 100%;
+    right: 100%;
   }
 }
