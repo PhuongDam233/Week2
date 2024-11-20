@@ -1,10 +1,10 @@
 .schero {
   .textbox {
-    gap: 24px;
-    position: absolute;
+    @include midPositonX;
+    @include size(100%, 100%);
     @include mid(true);
     flex-direction: column;
-    @include size(100%, 100%);
+    gap: 24px;
     p {
       color: var(--white-cl);
       font-size: var(--fs-p-hero);
@@ -337,10 +337,11 @@
   @include size(100%, 100%);
   position: relative;
   background-size: 100% 100%;
-  background-image: url(".../img/banner.jpg");
+  background-image: url("../img/banner.jpg");
   .textbox {
     position: relative;
     z-index: 3;
+    transform: translateY(10px);
     p {
       color: var(--white-cl);
       margin-top: 31px;
@@ -358,7 +359,7 @@
   }
   @include xs {
     padding: 226px 0;
-    background-image: url(".../img/banner-mob.jpg");
+    background-image: url("../img/banner-mob.jpg");
   }
 }
 .scservice {
