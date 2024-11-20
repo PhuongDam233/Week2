@@ -16,11 +16,6 @@
       width: 100%;
     }
   }
-  @include xs {
-    .textbox {
-      gap: 12px;
-    }
-  }
 }
 .sctabs {
   padding-top: 100px;
@@ -42,8 +37,10 @@
           content: "";
           display: block;
           width: 100%;
+          // height: 1px;
           height: 1px;
-          margin-top: 5px;
+          // margin-top: 5px;
+          margin-top: 2px;
           background-color: var(--black-cl);
           transform-origin: left;
           transform: scaleX(0);
@@ -126,10 +123,10 @@
         margin-right: calc(var(--gap) * -1);
         li {
           &:nth-child(1) {
-            margin-left: var(--gap);
+            margin-left: calc(var(--gap) + 15px);
           }
           &:nth-child(5) {
-            margin-right: var(--gap);
+            margin-right: calc(var(--gap) + 15px);
           }
         }
       }
@@ -208,7 +205,7 @@
     }
   }
   @include xs {
-    padding: 48px 0px;
+    padding: 90px 0px;
     .txcarousel {
       min-height: 64px;
     }
@@ -231,6 +228,8 @@
       text-align: center;
     }
     &-top {
+      width: 100%;
+      position: absolute;
       span {
         font-family: pm;
         text-transform: uppercase;
@@ -240,7 +239,6 @@
       height: 100%;
       @include mid(true);
       flex-direction: column;
-      margin-top: -33px;
       .content {
         font-size: var(--fs-text-large);
         line-height: var(--lh-text-large);
@@ -326,7 +324,7 @@
     }
   }
   @include xs {
-    padding-bottom: 28px;
+    padding-bottom: 69px;
     .textbox {
       max-width: 360px;
     }
@@ -358,8 +356,18 @@
     z-index: 1;
   }
   @include xs {
-    padding: 226px 0;
+    padding: 179px 0;
     background-image: url("../img/banner-mob.jpg");
+    .textbox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(50px);
+      .heading {
+        max-width: 220px;
+      }
+    }
   }
 }
 .scservice {
@@ -385,14 +393,19 @@
     }
   }
   @include xs {
-    padding: 48px 0;
+    padding-top: 24px;
+    padding-bottom: 57px;
     .container {
+      gap: 6px;
       grid-template-columns: repeat(1, 1fr);
       grid-template-rows: initial;
     }
     &__item {
       display: flex;
       gap: 16px;
+      img {
+        width: 40px;
+      }
     }
   }
 }
@@ -562,7 +575,7 @@
       img {
         &:nth-child(1) {
           left: 25px;
-          bottom: -19px;
+          bottom: -11px;
           top: initial;
         }
       }
@@ -586,6 +599,16 @@
       img {
         &:nth-child(1) {
           left: 98px;
+        }
+      }
+    }
+    &_center {
+      .textbox {
+        .heading {
+          padding-bottom: 17px;
+        }
+        .btnlink {
+          padding: 13px 40px;
         }
       }
     }
