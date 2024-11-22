@@ -356,18 +356,8 @@
     z-index: 1;
   }
   @include xs {
-    padding: 179px 0;
+    padding: 226px 0;
     background-image: url("../img/banner-mob.jpg");
-    .textbox {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transform: translateY(50px);
-      .heading {
-        max-width: 220px;
-      }
-    }
   }
 }
 .scservice {
