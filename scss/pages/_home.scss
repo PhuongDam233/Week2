@@ -107,6 +107,7 @@
   @include xxs {
     padding-top: 47px;
     .textbox {
+      padding-bottom: 32px;
       .sctabs__tab {
         gap: 24px;
         margin-left: calc(var(--gap) * -1);
@@ -125,6 +126,7 @@
       .article__list {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(1, 1fr);
+        row-gap: 25px;
         &-item {
           &:nth-child(1) {
             grid-column: 1/3;
@@ -362,6 +364,10 @@
         font-family: lr;
         font-size: var(--fs-body-l);
         line-height: var(--lh-body-l);
+      }
+      .desc {
+        font-size: var(--fs-text-service);
+        line-height: var(--lh-text-service);
       }
     }
   }

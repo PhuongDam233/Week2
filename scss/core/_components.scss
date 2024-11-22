@@ -156,6 +156,17 @@
       }
     }
   }
+  @include xxs {
+    .imgwrap {
+      .tag {
+        span {
+          &.--red {
+            padding: 3px 10px;
+          }
+        }
+      }
+    }
+  }
 }
 .scinspiration__list-item {
   .content {
