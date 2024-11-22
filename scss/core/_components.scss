@@ -206,6 +206,9 @@
     border-color: var(--red-light-cl);
     @include transition;
   }
+  @include xxs {
+    padding: 14px 0px 14px 17px;
+  }
 }
 // keyframes
 @keyframes move {
