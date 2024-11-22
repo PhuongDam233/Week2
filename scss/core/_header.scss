@@ -34,7 +34,7 @@
     }
     @include mid(true);
   }
-  @include xxs {
+  @include xs {
     &__top {
       &-info {
         @include dflexObj(Flex, center, initial);
