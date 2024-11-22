@@ -359,6 +359,15 @@
     padding: 226px 0;
     background-image: url("../img/banner-mob.jpg");
   }
+  @include xxs {
+    .textbox {
+      @include mid(true);
+      flex-direction: column;
+      .heading {
+        max-width: 230px;
+      }
+    }
+  }
 }
 .scservice {
   padding: 80px 0;
