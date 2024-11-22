@@ -62,6 +62,7 @@ function handleSliderProduct() {
     breakpoints: {
       350: {
         slidesPerView: 1.5,
+        spaceBetween: 48,
       },
       576: {
         slidesPerView: 2,

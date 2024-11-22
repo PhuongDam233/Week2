@@ -167,6 +167,15 @@
       width: initial;
     }
   }
+  @include xxs {
+    .textbox {
+      padding-bottom: 37px;
+    }
+    .imgwrap {
+      width: 265px;
+      height: 356px;
+    }
+  }
 }
 .sctext {
   padding: 150px 0px;
