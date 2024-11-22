@@ -18,7 +18,6 @@
     .desc {
       padding-bottom: 16px;
     }
-
     .iconsocial {
       padding: 35px 0;
       @include mid(true);
@@ -32,9 +31,15 @@
     }
   }
   @include xs {
+    .container-fluid {
+      padding: 35px 15px 10px 15px;
+    }
     .textbox {
       max-width: 360px;
       text-align: initial;
+      .desc {
+        padding-bottom: 25px;
+      }
       .iconsocial {
         justify-content: flex-start;
         padding-top: 27px;
