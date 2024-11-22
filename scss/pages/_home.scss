@@ -323,7 +323,7 @@
     }
   }
   @include xs {
-    padding-bottom: 28px;
+    padding-bottom: 65px;
     .textbox {
       max-width: 360px;
     }
@@ -340,7 +340,7 @@
     z-index: 3;
     p {
       color: var(--white-cl);
-      margin-top: 31px;
+      padding-top: 31px;
     }
   }
   &::before {
@@ -354,15 +354,19 @@
     z-index: 1;
   }
   @include xs {
-    padding: 226px 0;
+    padding: 187px 0;
     background-image: url("../img/banner-mob.jpg");
   }
   @include xxs {
     .textbox {
       @include mid(true);
       flex-direction: column;
+      transform: translateY(46px);
       .heading {
         max-width: 230px;
+      }
+      p {
+        padding-top: 15px;
       }
     }
   }
