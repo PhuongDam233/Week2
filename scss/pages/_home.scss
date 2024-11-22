@@ -198,7 +198,7 @@
     }
   }
   @include xs {
-    padding: 48px 0px;
+    padding: 62px 0px;
     .txcarousel {
       min-height: 64px;
     }
@@ -214,6 +214,7 @@
     width: 100%;
     overflow: hidden;
     aspect-ratio: 420/560;
+    position: relative;
     &:nth-child(2) {
       padding: 32px 0px;
       background-color: var(--brown-cl);
@@ -228,9 +229,10 @@
     }
     &-bottom {
       height: 100%;
+      width: 100%;
       @include mid(true);
+      @include midPositonY;
       flex-direction: column;
-      margin-top: -33px;
       .content {
         font-size: var(--fs-text-large);
         line-height: var(--lh-text-large);
@@ -250,8 +252,13 @@
   }
   @include xs {
     padding-bottom: 48px;
+    padding-top: 28px;
     .container {
       flex-direction: column;
+    }
+    &__img {
+      &-bottom {
+      }
     }
   }
 }

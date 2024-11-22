@@ -66,6 +66,7 @@ function handleSliderProduct() {
       },
       576: {
         slidesPerView: 2,
+        spaceBetween: 10,
       },
       767: {
         slidesPerView: 3,
