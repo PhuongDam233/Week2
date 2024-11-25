@@ -30,6 +30,14 @@
       }
     }
   }
+  .formcontact {
+    display: flex;
+    background-color: var(--white-cl);
+    input {
+      border: 1px solid var(--white-cl);
+      padding: 12px 0px 12px 17px;
+    }
+  }
   @include xs {
     .container-fluid {
       padding: 35px 15px 10px 15px;
@@ -44,6 +52,13 @@
         justify-content: flex-start;
         padding-top: 27px;
         padding-bottom: 30px;
+      }
+    }
+  }
+  @include xxs {
+    .formcontact {
+      input {
+        padding: 14px 0px 14px 17px;
       }
     }
   }

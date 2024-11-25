@@ -632,7 +632,7 @@
           </div>
         </div>
       </section>
-      <section class="sccontact">
+      <section class="scform">
         <div class="container">
           <div class="textbox center">
             <h2 class="heading --h2">
@@ -640,10 +640,15 @@
               receive purchase advice
             </h2>
           </div>
-          <form action="#" method="post">
+          <form
+            action="#"
+            method="post"
+            id="formgroup"
+            class="formcontact col col-2"
+          >
             <!-- name -->
-            <div class="formgroup">
-              <label class="textlabel" for="name">Name *</label>
+            <div class="formgroup_input">
+              <label class="formlabel" for="name">Name *</label>
               <input
                 type="text"
                 class="form__input"
@@ -653,8 +658,8 @@
               <p class="error"></p>
             </div>
             <!-- email -->
-            <div class="formgroup">
-              <label class="textlabel" for="email">Email *</label>
+            <div class="formgroup_input">
+              <label class="formlabel" for="email">Email *</label>
               <input
                 type="text"
                 class="form__input"
@@ -664,8 +669,8 @@
               <p class="error"></p>
             </div>
             <!-- phone -->
-            <div class="formgroup">
-              <label class="textlabel" for="phone">Phone *</label>
+            <div class="formgroup_input">
+              <label class="formlabel" for="phone">Phone *</label>
               <input
                 type="number"
                 class="form__input"
@@ -675,8 +680,8 @@
               <p class="error"></p>
             </div>
             <!-- address -->
-            <div class="formgroup">
-              <label class="textlabel" for="address">Address</label>
+            <div class="formgroup_input">
+              <label class="formlabel" for="address">Address</label>
               <input
                 type="text"
                 class="form__input"
@@ -686,8 +691,8 @@
               <p class="error"></p>
             </div>
             <!-- text area -->
-            <div class="formgroup">
-              <label class="textlabel" for="message">Your message </label>
+            <div class="formgroup_input formgroup_input-message">
+              <label class="formlabel" for="message">Your message </label>
               <textarea
                 name="message"
                 id="message"
@@ -695,8 +700,10 @@
               ></textarea>
               <p class="error"></p>
             </div>
-            <button type="submit">Submit now</button>
-            <label class="textlabel" for="button">* Required</label>
+            <div class="formgroup_input formgroup_input-button">
+              <button type="submit" class="btn btnsub">Submit now</button>
+              <label class="formlabel" for="button">* Required</label>
+            </div>
           </form>
         </div>
       </section>
@@ -831,7 +838,7 @@
                 <h2 class="heading --h2-s">
                   78 Trung Kinh, Yen Hoa, Cau Giay, Hanoi
                 </h2>
-                <a href="#" target="_blank" class="btnlink">@ORANGY</a>
+                <a href="#" target="_blank" class="btn btnlink">@ORANGY</a>
               </div>
             </div>
             <div class="sccontact_right">
@@ -850,7 +857,7 @@
           <form action="#" method="post" id="from" class="formcontact">
             <input type="text" name="email" id="email" placeholder="Email" />
             <p class="form-error"></p>
-            <button type="submit">
+            <button type="submit" class="btnfooter">
               <img src="./img/icons/i-arrow.svg" alt="i-arrow" />
             </button>
           </form>

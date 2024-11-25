@@ -29,7 +29,7 @@ handleTabsNew();
 
 // //FORM VALIDATE
 function validateForm() {
-  const form = document.querySelector(".formcontact");
+  const form = document.querySelector("#from");
   // submit form
   form.addEventListener("submit", function (e) {
     e.preventDefault();

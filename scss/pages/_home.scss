@@ -262,8 +262,52 @@
     }
   }
 }
+.scform {
+  padding: 100px 0;
+  background-color: var(--background-contact-cl);
+  .textbox {
+    padding-bottom: 70px;
+  }
+  .formcontact {
+    gap: 50px;
+    row-gap: 9px;
+    .formgroup_input {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      input {
+        padding: 0px 17px;
+      }
+      input,
+      button,
+      textarea {
+        border: 1px solid var(--gray-input-cl);
+      }
+    }
+    .formgroup_input-message {
+      grid-column: 1/3;
+      display: flex;
+      flex-direction: column;
+      textarea {
+        height: 180px;
+        padding: 11px 17px;
+      }
+    }
+    .formgroup_input-button {
+      grid-column: 1/3;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      .btnsub {
+        margin-bottom: 11px;
+        margin-top: 15px;
+      }
+    }
+  }
+}
 .scinspiration {
   padding-bottom: 95px;
+  padding-top: 55px;
   .textbox {
     max-width: 630px;
     margin-right: auto;
