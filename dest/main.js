@@ -29,7 +29,7 @@ handleTabsNew();
 
 // //FORM VALIDATE
 function validateForm() {
-  const form = document.querySelector(".formcontact");
+  const form = document.querySelector("#from");
   // submit form
   form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -96,7 +96,7 @@ window.addEventListener("load", function () {
 // resize window
 window.addEventListener("resize", function () {
   let wwindow = window.innerWidth;
-  if (wwindow < 576) {
+  if (wwindow < 768) {
     handleHeader();
   }
 });
