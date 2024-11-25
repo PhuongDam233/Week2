@@ -16,6 +16,11 @@
     font-size: var(--fs-h3);
     line-height: var(--lh-h3);
   }
+  &.--h3-large {
+    color: var(--black-cl);
+    font-size: var(--fs-h3-l);
+    line-height: var(--lh-h3-l);
+  }
   &.--h2-large {
     color: var(--white-cl);
     font-size: var(--fs-text-large);
