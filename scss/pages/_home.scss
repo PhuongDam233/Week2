@@ -304,6 +304,33 @@
       }
     }
   }
+  @include xxs {
+    padding: 48px 0px;
+    .textbox {
+      padding-bottom: 40px;
+    }
+    .formcontact {
+      grid-template-columns: repeat(1, 1fr);
+      .formgroup_input {
+        gap: 9px;
+      }
+      .formgroup_input-message,
+      .formgroup_input-button {
+        grid-column: initial;
+      }
+      .formgroup_input-message {
+        textarea {
+          height: 204px;
+        }
+      }
+      .formgroup_input-button {
+        .btnsub {
+          width: 100%;
+          margin-top: 28px;
+        }
+      }
+    }
+  }
 }
 .scinspiration {
   padding-bottom: 95px;
