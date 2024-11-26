@@ -212,6 +212,7 @@
     .icon {
       @include size(20px, 20px);
       @include mid(true);
+      margin-left: 10px;
       span {
         @include size(20px, 1.5px);
         position: relative;
@@ -223,6 +224,18 @@
           background-color: var(--black-cl);
           transform: rotate(90deg);
           @include transition;
+        }
+      }
+    }
+  }
+  @include xxs {
+    .question {
+      .icon {
+        span {
+          @include size(13px, 1.5px);
+          &::after {
+            @include size(13px, 1.5px);
+          }
         }
       }
     }
