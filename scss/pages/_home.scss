@@ -291,6 +291,14 @@
       textarea {
         border: 1px solid var(--gray-input-cl);
       }
+      &.--invalid {
+        input,
+        button,
+        textarea {
+          border-color: var(--red-cl);
+          @include transition;
+        }
+      }
     }
     .formgroup_input-message {
       grid-column: 1/3;
@@ -299,6 +307,7 @@
       textarea {
         height: 180px;
         padding: 11px 17px;
+        outline: none;
       }
     }
     .formgroup_input-button {

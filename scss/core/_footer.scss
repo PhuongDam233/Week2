@@ -37,6 +37,11 @@
       border: 1px solid var(--white-cl);
       padding: 12px 0px 12px 17px;
     }
+    .form-error {
+      right: 48px;
+      top: 15px;
+      position: absolute;
+    }
   }
   @include xs {
     .container-fluid {

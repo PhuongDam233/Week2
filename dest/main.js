@@ -120,6 +120,7 @@ function handleAccordion() {
 }
 handleAccordion();
 
+// HANDLE POPUP
 function handlePopup() {
   const btnClose = document.querySelector(".popup__inner-close"),
     btnShop = document.querySelector(".btnshop"),
@@ -168,12 +169,107 @@ function handlePopup() {
 }
 handlePopup();
 
-// //FORM VALIDATE
-function validateForm() {
-  const form = document.querySelector("#from");
-  // submit form
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-  });
+// FORM VALIDATE
+function Validator(options) {
+  function valiate(inputElement, rule) {
+    var errorMessage = rule.test(inputElement.value);
+    var errorElement = inputElement.parentElement.querySelector(
+      options.errorSelector
+    );
+
+    if (errorMessage) {
+      errorElement.innerText = errorMessage;
+      inputElement.parentElement.classList.add("--invalid");
+    } else {
+      errorElement.innerText = "";
+      inputElement.parentElement.classList.remove("--invalid");
+    }
+  }
+
+  // lấy element của form cần validate
+  var formElement = document.querySelector(options.form);
+
+  if (formElement) {
+    //khi submit form
+    formElement.onsubmit = function (e) {
+      e.preventDefault();
+
+      // lặp qua từng rule và validate
+      options.rules.forEach(function (rule) {
+        var inputElement = formElement.querySelector(rule.selector);
+        valiate(inputElement, rule);
+      });
+    };
+
+    // lặp qua và xử lí
+    options.rules.forEach(function (rule) {
+      var inputElement = formElement.querySelector(rule.selector);
+      var errorElement = inputElement.parentElement.querySelector(
+        options.errorSelector
+      );
+
+      if (inputElement) {
+        // xử lí trường hợp blur khỏi input
+        inputElement.onblur = function () {
+          valiate(inputElement, rule);
+        };
+        // Xử lí khi người dùng nhập
+        inputElement.oninput = function () {
+          errorElement.innerText = "";
+          inputElement.parentElement.classList.remove("--invalid");
+        };
+      }
+    });
+  }
 }
-validateForm();
+// Nguyên tắc của rules:
+// 1. khi có lỗi -> trả ra mess lỗi
+// 2. khi hợp lệ -> ko trả tra gì cả ( undefined)
+Validator.isRequired = function (selector) {
+  return {
+    selector: selector,
+    test: function (value) {
+      return value.trim() ? undefined : "Please fill out this field";
+    },
+  };
+};
+
+Validator.isNumber = function (selector) {
+  return {
+    selector: selector,
+    test: function (value) {
+      var regex = /^\d{10}$/;
+      return regex.test(value) ? undefined : "This field must be number";
+    },
+  };
+};
+
+Validator.isEmail = function (selector) {
+  return {
+    selector: selector,
+    test: function (value) {
+      var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      return regex.test(value) ? undefined : "This field must be email";
+    },
+  };
+};
+
+Validator({
+  form: "#formgroup",
+  formGroupSelector: ".formgroup__input",
+  errorSelector: ".form-error",
+  rules: [
+    Validator.isRequired("#name"),
+    Validator.isEmail("#email"),
+    Validator.isNumber("#phone"),
+    Validator.isRequired("#address"),
+    Validator.isRequired("#message"),
+  ],
+});
+
+Validator({
+  form: "#from",
+  formGroupSelector: ".formcontact",
+  errorSelector: ".form-error",
+  rules: [Validator.isEmail("#emailfooter")],
+});

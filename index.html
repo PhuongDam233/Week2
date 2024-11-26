@@ -674,7 +674,7 @@
                 id="name"
                 placeholder="Name"
               />
-              <p class="error"></p>
+              <p class="form-error"></p>
             </div>
             <!-- email -->
             <div class="formgroup_input">
@@ -685,18 +685,18 @@
                 id="email"
                 placeholder="Email"
               />
-              <p class="error"></p>
+              <p class="form-error"></p>
             </div>
             <!-- phone -->
             <div class="formgroup_input">
               <label class="formlabel" for="phone">Phone *</label>
               <input
-                type="number"
+                type="tel"
                 class="form__input"
                 id="phone"
                 placeholder="Phone"
               />
-              <p class="error"></p>
+              <p class="form-error"></p>
             </div>
             <!-- address -->
             <div class="formgroup_input">
@@ -707,7 +707,7 @@
                 id="address"
                 placeholder="Address"
               />
-              <p class="error"></p>
+              <p class="form-error"></p>
             </div>
             <!-- text area -->
             <div class="formgroup_input formgroup_input-message">
@@ -717,7 +717,7 @@
                 id="message"
                 placeholder="Example: I want to buy 6 chairs and a table brand Oda ottoman..."
               ></textarea>
-              <p class="error"></p>
+              <p class="form-error"></p>
             </div>
             <!-- button -->
             <div class="formgroup_input formgroup_input-button">
@@ -968,11 +968,16 @@
           <h2 class="heading">Subscribe to get 10% OFF</h2>
           <p class="desc">Subscribe for store updates and discounts.</p>
           <form action="#" method="post" id="from" class="formcontact">
-            <input type="text" name="email" id="email" placeholder="Email" />
-            <p class="form-error"></p>
+            <input
+              type="text"
+              name="email"
+              id="emailfooter"
+              placeholder="Email"
+            />
             <button type="submit" class="btnfooter">
               <img src="./img/icons/i-arrow.svg" alt="i-arrow" />
             </button>
+            <p class="form-error"></p>
           </form>
           <div class="iconsocial">
             <a href="https://www.facebook.com/"
