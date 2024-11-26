@@ -29,7 +29,7 @@ body {
     margin-left: auto;
   }
 }
-@include xxs {
+@include sm {
   .container {
     padding-left: 15px;
     padding-right: 15px;

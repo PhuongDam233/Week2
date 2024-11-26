@@ -408,6 +408,44 @@
     }
   }
 }
+.accordion {
+  padding-bottom: 100px;
+  .textbox {
+    margin-bottom: 60px;
+  }
+  &_list {
+    &-item {
+      &.--active {
+        border-bottom: none;
+        .question {
+          border-bottom: 1px solid var(--black-cl);
+          .icon {
+            span {
+              &::after {
+                transform: rotate(0deg);
+              }
+            }
+          }
+        }
+      }
+      @include transition;
+      border-bottom: 1px solid var(--border-bottom-accordion-cl);
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+      .question {
+        padding-bottom: 20px;
+        cursor: pointer;
+      }
+      .answer {
+        padding-top: 16px;
+        max-height: 0;
+        overflow: hidden;
+        @include transition;
+      }
+    }
+  }
+}
 .scbanner {
   padding: 108px 0;
   @include size(100%, 100%);
