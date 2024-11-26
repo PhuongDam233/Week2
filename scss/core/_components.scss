@@ -204,7 +204,30 @@
     }
   }
 }
-
+.accordion_list-item {
+  .question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .icon {
+      @include size(20px, 20px);
+      @include mid(true);
+      span {
+        @include size(20px, 1.5px);
+        position: relative;
+        background-color: var(--black-cl);
+        &::after {
+          content: "";
+          @include size(20px, 1.5px);
+          position: absolute;
+          background-color: var(--black-cl);
+          transform: rotate(90deg);
+          @include transition;
+        }
+      }
+    }
+  }
+}
 // From
 .formcontact {
   width: 100%;
