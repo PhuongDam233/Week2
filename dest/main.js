@@ -121,21 +121,50 @@ function handleAccordion() {
 handleAccordion();
 
 function handlePopup() {
-  let btnClose = document.querySelector(".popup__inner-close"),
-    btnShop = document.querySelector(".btnshop");
-  popup = document.querySelector(".popup");
+  const btnClose = document.querySelector(".popup__inner-close"),
+    btnShop = document.querySelector(".btnshop"),
+    popup = document.querySelector(".popup"),
+    sectabs = document.querySelector(".sctabs");
 
-  btnClose.addEventListener("click", () => {
+  btnClose.addEventListener("click", closePopup);
+
+  btnShop.addEventListener("click", () => {
     closePopup();
+    window.scrollTo({
+      top: sectabs.offsetTop,
+      behavior: "smooth",
+    });
   });
 
-  popup.addEventListener("click", () => {
-    closePopup();
-  });
-
+  popup.addEventListener("click", closePopup);
+  // Close popup
   function closePopup() {
     popup.classList.remove("active");
+    localStorage.setItem("lastShown", Date.now());
   }
+  // add popup
+  function openPopup() {
+    popup.classList.add("active");
+  }
+  const lastShown = localStorage.getItem("lastShown");
+  // Kiểm tra xem đã quá 4h kể từ lần hiển thị cuối cùng chưa
+  if (lastShown) {
+    const now = Date.now();
+    const diff = now - parseInt(lastShown);
+    if (diff < 4 * 60 * 60 * 1000) {
+      return;
+    }
+  }
+  // Sự kiện khi người dùng tương tác
+  let timeout;
+  document.addEventListener("mousemove", () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(openPopup, 3000);
+  });
+  document.addEventListener("touchstart", () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(openPopup, 3000);
+  });
 }
 handlePopup();
 
