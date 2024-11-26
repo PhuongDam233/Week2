@@ -26,6 +26,11 @@
     font-size: var(--fs-text-large);
     line-height: var(--lh-text-large);
   }
+  &.--h2-large-black {
+    color: var(--black-cl);
+    font-size: var(--fs-text-large);
+    line-height: var(--lh-text-large);
+  }
   &.--h2-s {
     color: var(--black-cl);
     font-size: var(--fs-text-s);
@@ -44,6 +49,13 @@
   &.row {
     display: flex;
     justify-content: space-between;
+  }
+}
+.textskip {
+  font-size: var(--fs-body-s);
+  line-height: var(--lh-body-s);
+  &:hover {
+    opacity: 0.9;
   }
 }
 // btn
@@ -101,6 +113,20 @@
   padding: 0 18px;
   background-color: var(--white-cl);
 }
+.btnshop {
+  font-size: var(--fs-textbtn);
+  line-height: var(--lh-textbtn);
+  height: var(--height-button);
+  background-color: var(--black-cl);
+  color: var(--white-cl);
+  width: 100%;
+  @include transition;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
 // col
 .col {
   display: grid;

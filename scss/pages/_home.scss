@@ -741,3 +741,73 @@
     }
   }
 }
+.popup {
+  @include visible(0);
+  @include transition;
+  z-index: 500;
+  position: fixed;
+  &.active {
+    background: var(--background-cl);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+    @include visible(1);
+    z-index: 9999;
+  }
+  &__inner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    display: flex;
+    background-color: var(--white-cl);
+    &-close {
+      position: absolute;
+      cursor: pointer;
+      right: 0;
+      background-color: var(--black-cl);
+    }
+    &-img {
+      width: 50%;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    &-content {
+      width: 50%;
+      padding: 20px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+  }
+  @include maxW(1025px) {
+    &__inner {
+      flex-direction: column;
+      &-img {
+        width: 101%;
+        height: 250px;
+      }
+      &-content {
+        width: 100%;
+      }
+    }
+  }
+  @include xxs {
+    &__inner {
+      width: 80vw;
+    }
+  }
+  @include xxxs {
+    &__inner {
+      width: 88vw;
+    }
+  }
+}

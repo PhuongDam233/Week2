@@ -120,6 +120,25 @@ function handleAccordion() {
 }
 handleAccordion();
 
+function handlePopup() {
+  let btnClose = document.querySelector(".popup__inner-close"),
+    btnShop = document.querySelector(".btnshop");
+  popup = document.querySelector(".popup");
+
+  btnClose.addEventListener("click", () => {
+    closePopup();
+  });
+
+  popup.addEventListener("click", () => {
+    closePopup();
+  });
+
+  function closePopup() {
+    popup.classList.remove("active");
+  }
+}
+handlePopup();
+
 // //FORM VALIDATE
 function validateForm() {
   const form = document.querySelector("#from");
