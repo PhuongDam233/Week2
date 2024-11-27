@@ -184,6 +184,7 @@ function Validator(options) {
       errorElement.innerText = "";
       inputElement.parentElement.classList.remove("--invalid");
     }
+    return !errorMessage;
   }
 
   // lấy element của form cần validate
@@ -193,6 +194,7 @@ function Validator(options) {
     //khi submit form
     formElement.onsubmit = function (e) {
       e.preventDefault();
+
       var isFormValid = true;
 
       // lặp qua từng rule và validate
@@ -206,25 +208,7 @@ function Validator(options) {
       });
 
       if (isFormValid) {
-        var $form = $("form#from"),
-          url =
-            "https://script.google.com/macros/s/AKfycbwBstL25AahbiFJ3duU9fWGxcNhHr49NT7XYGOXpyyolcgCGWZ2OITTVOjnJc5KDOoLHQ/exec";
-        e.preventDefault();
-        var data = $form.serialize();
-        var jqxhr = $.ajax({
-          url: url,
-          method: "POST",
-          dataType: "json",
-          data: data,
-          success: function (data) {
-            if (data == "false") {
-              alert("Thêm không thành công");
-            } else {
-              alert("Đã thêm dữ liệu vào Form");
-            }
-          },
-        });
-        // return false;
+        sendForm();
       }
     };
 
@@ -264,7 +248,9 @@ Validator.isNumber = function (selector) {
     selector: selector,
     test: function (value) {
       var regex = /^\d{10}$/;
-      return regex.test(value) ? undefined : "This field must be number";
+      return regex.test(value)
+        ? undefined
+        : "Please enter a valid number phone";
     },
   };
 };
@@ -274,7 +260,9 @@ Validator.isEmail = function (selector) {
     selector: selector,
     test: function (value) {
       var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-      return regex.test(value) ? undefined : "This field must be email";
+      return regex.test(value)
+        ? undefined
+        : "Please enter a valid email address.";
     },
   };
 };
@@ -301,23 +289,13 @@ Validator({
 
 // SEND EMAIL TO EXCEL
 function sendForm() {
-  // đem tất cả dữ liệu trong form id là 'google-form' gom thành biến data
-  let data = $("#from").serialize();
-
-  $.ajax({
-    //Sử dụng Ajax gửi dữ liệu đi
-    url: "https://script.google.com/macros/s/AKfycbwyHfwLLFRgypFtdRUc-bVXP69t1TxqSn7fIIzOZ5n-avLWrY8BkM6_7rjbolewers2zw/exec",
-    method: "GET",
+  var $form = $("form"),
+    url =
+      "https://script.google.com/macros/s/AKfycbwBstL25AahbiFJ3duU9fWGxcNhHr49NT7XYGOXpyyolcgCGWZ2OITTVOjnJc5KDOoLHQ/exec";
+  var jqxhr = $.ajax({
+    url: url,
+    method: "POST",
     dataType: "json",
-    data: data,
-    success: function (responseData, textStatus, jqXHR) {},
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.log(errorThrown);
-    },
-  });
-
-  window.jQuery(this).trigger("reset");
-  alert("Success!");
-
-  return true;
+    data: $form.serialize(),
+  }).success(alert("Gửi form thành công"));
 }

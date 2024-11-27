@@ -112,6 +112,10 @@
 .btnfooter {
   padding: 0 18px;
   background-color: var(--white-cl);
+  @include transition;
+  &:hover {
+    background-color: var(--border-bottom-accordion-cl);
+  }
 }
 .btnshop {
   font-size: var(--fs-textbtn);
