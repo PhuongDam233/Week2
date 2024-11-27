@@ -130,7 +130,18 @@
     opacity: 0.9;
   }
 }
-
+.btncookie {
+  width: 100%;
+  height: var(--height-button-small);
+  cursor: pointer;
+  @include transition;
+  background-color: var(--black-cl);
+  color: var(--white-cl);
+  &:hover {
+    background-color: var(--white-cl);
+    color: var(--black-cl);
+  }
+}
 // col
 .col {
   display: grid;

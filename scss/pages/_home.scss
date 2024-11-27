@@ -819,3 +819,31 @@
     }
   }
 }
+.cookie-bar {
+  background-color: var(--gray-light-cl);
+  color: var(--black-cl);
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  // text-align: center;
+  left: 0;
+  width: 30%;
+  z-index: 9999;
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  p {
+    font-size: var(--fs-textlabel);
+    line-height: var(--lh-textlabel);
+    // max-width: 300px;
+  }
+  .cookie-btn {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+}
