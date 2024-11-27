@@ -193,12 +193,39 @@ function Validator(options) {
     //khi submit form
     formElement.onsubmit = function (e) {
       e.preventDefault();
+      var isFormValid = true;
 
       // lặp qua từng rule và validate
       options.rules.forEach(function (rule) {
         var inputElement = formElement.querySelector(rule.selector);
-        valiate(inputElement, rule);
+        var isValid = valiate(inputElement, rule);
+        // Tồn tại 1 kí tự invalid rule => error
+        if (!isValid) {
+          isFormValid = false;
+        }
       });
+
+      if (isFormValid) {
+        var $form = $("form#from"),
+          url =
+            "https://script.google.com/macros/s/AKfycbwBstL25AahbiFJ3duU9fWGxcNhHr49NT7XYGOXpyyolcgCGWZ2OITTVOjnJc5KDOoLHQ/exec";
+        e.preventDefault();
+        var data = $form.serialize();
+        var jqxhr = $.ajax({
+          url: url,
+          method: "POST",
+          dataType: "json",
+          data: data,
+          success: function (data) {
+            if (data == "false") {
+              alert("Thêm không thành công");
+            } else {
+              alert("Đã thêm dữ liệu vào Form");
+            }
+          },
+        });
+        // return false;
+      }
     };
 
     // lặp qua và xử lí
@@ -223,8 +250,6 @@ function Validator(options) {
   }
 }
 // Nguyên tắc của rules:
-// 1. khi có lỗi -> trả ra mess lỗi
-// 2. khi hợp lệ -> ko trả tra gì cả ( undefined)
 Validator.isRequired = function (selector) {
   return {
     selector: selector,
@@ -273,3 +298,26 @@ Validator({
   errorSelector: ".form-error",
   rules: [Validator.isEmail("#emailfooter")],
 });
+
+// SEND EMAIL TO EXCEL
+function sendForm() {
+  // đem tất cả dữ liệu trong form id là 'google-form' gom thành biến data
+  let data = $("#from").serialize();
+
+  $.ajax({
+    //Sử dụng Ajax gửi dữ liệu đi
+    url: "https://script.google.com/macros/s/AKfycbwyHfwLLFRgypFtdRUc-bVXP69t1TxqSn7fIIzOZ5n-avLWrY8BkM6_7rjbolewers2zw/exec",
+    method: "GET",
+    dataType: "json",
+    data: data,
+    success: function (responseData, textStatus, jqXHR) {},
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.log(errorThrown);
+    },
+  });
+
+  window.jQuery(this).trigger("reset");
+  alert("Success!");
+
+  return true;
+}
