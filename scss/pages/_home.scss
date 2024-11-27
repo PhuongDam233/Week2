@@ -753,8 +753,6 @@
 .popup {
   @include visible(0);
   @include transition;
-  z-index: 500;
-  position: fixed;
   &.active {
     background: var(--background-popup-cl);
     top: 0;
@@ -820,15 +818,11 @@
   }
 }
 .cookie-bar {
-  background-color: var(--gray-light-cl);
-  color: var(--black-cl);
-  padding: 10px;
+  @include visible(0);
+
   position: fixed;
-  bottom: 0;
-  // text-align: center;
-  left: 0;
-  width: 30%;
-  z-index: 9999;
+
+  @include transition;
   .container {
     display: flex;
     align-items: center;
@@ -837,7 +831,6 @@
   p {
     font-size: var(--fs-textlabel);
     line-height: var(--lh-textlabel);
-    // max-width: 300px;
   }
   .cookie-btn {
     width: 100%;
@@ -845,5 +838,15 @@
     display: flex;
     justify-content: center;
     gap: 20px;
+  }
+  &.active {
+    @include visible(1);
+    background-color: var(--gray-light-cl);
+    color: var(--black-cl);
+    padding: 10px;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    z-index: 9000;
   }
 }

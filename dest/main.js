@@ -1,5 +1,6 @@
 window.addEventListener("load", function () {
   handleSliderProduct();
+  checkCookie();
 });
 
 // RESIZE WINDOW
@@ -299,3 +300,58 @@ function sendForm() {
     data: $form.serialize(),
   }).success(alert("Gửi form thành công"));
 }
+
+// HANDLE COOKIE BAR
+
+// Hàm để đặt cookie
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+// Hàm để lấy giá trị của một cookie
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return;
+}
+
+// Kiểm tra xem người dùng đã đồng ý với cookie chưa
+function checkCookie() {
+  let cookieConsent = getCookie("cookieConsent");
+  if (cookieConsent !== "") {
+    // Nếu đã đồng ý, ẩn cookie bar
+    document.querySelector(".cookie-bar").classList.add("active");
+  } else {
+    document.querySelector(".cookie-bar").classList.remove("active");
+  }
+}
+function handleCookieBar() {
+  let btnAccept = document.querySelector(".accept-cookies"),
+    btnReject = document.querySelector(".reject-cookies"),
+    cookiBar = document.querySelector(".cookie-bar");
+
+  // Sự kiện khi người dùng click vào nút đồng ý
+  btnAccept.addEventListener("click", () => {
+    setCookie("cookieConsent", "true", 180); // Lưu cookie đồng ý trong 6 tháng
+    cookiBar.classList.remove("active");
+  });
+
+  // Sự kiện khi người dùng click vào nút từ chối
+  btnReject.addEventListener("click", () => {
+    cookiBar.classList.remove("active");
+  });
+}
+handleCookieBar();
