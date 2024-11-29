@@ -154,7 +154,9 @@ function handlePopup() {
     const now = Date.now();
     const diff = now - parseInt(lastShown);
     if (diff < 4 * 60 * 60 * 1000) {
-      return;
+      popup.classList.remove("active");
+    } else {
+      openPopup();
     }
   }
   // Sự kiện khi người dùng tương tác
