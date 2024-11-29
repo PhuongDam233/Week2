@@ -33,8 +33,13 @@
     <meta name="twitter:image" content="" />
 
     <script type="text/javascript">
+      var widgetId1;
+      var widgetId2;
       var onloadCallback = function () {
-        grecaptcha.render("divRecaptcha", {
+        widgetId1 = grecaptcha.render("divRecaptcha1", {
+          sitekey: "6LehdI0qAAAAAJx-YfCMKz7inI7x4IkeCrdkR-1W",
+        });
+        widgetId2 = grecaptcha.render("divRecaptcha2", {
           sitekey: "6LehdI0qAAAAAJx-YfCMKz7inI7x4IkeCrdkR-1W",
         });
       };
@@ -747,7 +752,7 @@
               <label class="formlabel" for="button">* Required</label>
             </div>
             <!-- captcha -->
-            <div id="divRecaptcha" class="g-recaptcha"></div>
+            <div id="divRecaptcha1" class="g-recaptcha"></div>
           </form>
         </div>
       </section>
@@ -992,18 +997,20 @@
           <h2 class="heading">Subscribe to get 10% OFF</h2>
           <p class="desc">Subscribe for store updates and discounts.</p>
           <form method="POST" id="from" class="formcontact">
+            <div class="formgroup_input">
+              <input
+                type="text"
+                name="email"
+                id="emailfooter"
+                placeholder="Email"
+              />
+              <button type="submit" class="btnfooter" id="submit-form">
+                <img src="./img/icons/i-arrow.svg" alt="i-arrow" />
+              </button>
+              <p class="form-error"></p>
+            </div>
             <!-- captcha -->
-            <div id="divRecaptcha" class="g-recaptcha"></div>
-            <input
-              type="text"
-              name="email"
-              id="emailfooter"
-              placeholder="Email"
-            />
-            <button type="submit" class="btnfooter" id="submit-form">
-              <img src="./img/icons/i-arrow.svg" alt="i-arrow" />
-            </button>
-            <p class="form-error"></p>
+            <div id="divRecaptcha2" class="g-recaptcha"></div>
           </form>
           <div class="iconsocial">
             <a href="https://www.facebook.com/"
