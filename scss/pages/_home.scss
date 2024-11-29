@@ -847,7 +847,8 @@
     padding: 10px;
     bottom: 0;
     left: 0;
-    width: 30%;
+    max-width: 310px;
+    width: 100%;
     z-index: 9000;
   }
 }

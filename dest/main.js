@@ -159,23 +159,25 @@ function handlePopup() {
       const timeDiff = now - parseInt(lastClosedAt);
       if (timeDiff >= 4 * 60 * 60 * 1000) {
         // 4 giờ = 4 * 60 * 60 * 1000 milliseconds
-        openPopup();
+        userContact();
       }
     } else {
       // Hiển thị popup lần đầu
-      openPopup();
+      userContact();
     }
   }
   // Sự kiện khi người dùng tương tác
-  let timeout;
-  document.addEventListener("mousemove", () => {
-    clearTimeout(timeout);
-    timeout = setTimeout(openPopup, 3000);
-  });
-  document.addEventListener("touchstart", () => {
-    clearTimeout(timeout);
-    timeout = setTimeout(openPopup, 3000);
-  });
+  function userContact() {
+    let timeout;
+    document.addEventListener("mousemove", () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(openPopup, 3000);
+    });
+    document.addEventListener("touchstart", () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(openPopup, 3000);
+    });
+  }
   checkAndShowPopup();
   setInterval(checkAndShowPopup, 60000);
 }
@@ -385,8 +387,8 @@ function getCookie(cname) {
 
 // Kiểm tra xem người dùng đã đồng ý với cookie chưa
 function checkCookie() {
-  let cookieConsent = getCookie("cookieConsent");
-  if (cookieConsent !== "") {
+  let value = getCookie("cookieConsent");
+  if (value !== "") {
     // Nếu đã đồng ý, ẩn cookie bar
     document.querySelector(".cookie-bar").classList.add("active");
   } else {
@@ -394,7 +396,7 @@ function checkCookie() {
   }
 }
 function handleCookieBar() {
-  let btnAccept = document.querySelector(".accept-cookies"),
+  const btnAccept = document.querySelector(".accept-cookies"),
     btnReject = document.querySelector(".reject-cookies"),
     cookiBar = document.querySelector(".cookie-bar");
 
