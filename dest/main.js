@@ -209,6 +209,31 @@ function Validator(options) {
       });
 
       if (isFormValid) {
+        if (typeof options.onsubmit === "function") {
+          // Lấy giá trị từ các trường của Contact Form
+          var enableInput = formElement.querySelectorAll("[name]");
+          var formValue = Array.from(enableInput).reduce(function (
+            value,
+            input
+          ) {
+            return (value[input.name] = input.value) && value;
+          },
+          {});
+          let body = JSON.stringify({
+            name: formValue.name,
+            email: formValue.email,
+            phone: formValue.phone,
+            address: formValue.address,
+          });
+          const storedData = JSON.parse(localStorage.getItem("formData"));
+          if (storedData) {
+            formValue.name = storedData.name;
+            formValue.email = storedData.email;
+            formValue.phone = storedData.phone;
+            formValue.address = storedData.address;
+          }
+        }
+        // Gửi email đến file excel khi validate thành công
         sendForm();
       }
     };
@@ -279,6 +304,20 @@ Validator({
     Validator.isRequired("#address"),
     Validator.isRequired("#message"),
   ],
+  onsubmit: function (data) {
+    fetch("https://testapi.demo.wgentech.com/notify.php", {
+      body,
+      method: "POST",
+      keepalive: true,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  },
 });
 
 Validator({
@@ -286,6 +325,7 @@ Validator({
   formGroupSelector: ".formcontact",
   errorSelector: ".form-error",
   rules: [Validator.isEmail("#emailfooter")],
+  // onsubmit: sendForm(),
 });
 
 // SEND EMAIL TO EXCEL
@@ -298,7 +338,11 @@ function sendForm() {
     method: "POST",
     dataType: "json",
     data: $form.serialize(),
-  }).success(alert("Gửi form thành công"));
+  }).done(function () {
+    {
+      alert("Gửi form thành công");
+    }
+  });
 }
 
 // HANDLE COOKIE BAR
