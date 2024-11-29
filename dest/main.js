@@ -1,6 +1,7 @@
 window.addEventListener("load", function () {
   handleSliderProduct();
   checkCookie();
+  handlePopup();
 });
 
 // RESIZE WINDOW
@@ -142,34 +143,43 @@ function handlePopup() {
   // Close popup
   function closePopup() {
     popup.classList.remove("active");
-    localStorage.setItem("lastShown", Date.now());
+    localStorage.setItem("popupClosedAt", Date.now());
   }
   // add popup
   function openPopup() {
     popup.classList.add("active");
   }
-  const lastShown = localStorage.getItem("lastShown");
   // Kiểm tra xem đã quá 4h kể từ lần hiển thị cuối cùng chưa
-  if (lastShown) {
+
+  function checkAndShowPopup() {
+    const lastClosedAt = localStorage.getItem("popupClosedAt");
     const now = Date.now();
-    const diff = now - parseInt(lastShown);
-    if (diff < 4 * 60 * 60 * 1000) {
-      popup.classList.remove("active");
+
+    if (lastClosedAt) {
+      const timeDiff = now - parseInt(lastClosedAt);
+      if (timeDiff >= 4 * 60 * 60 * 1000) {
+        // 4 giờ = 4 * 60 * 60 * 1000 milliseconds
+        openPopup();
+      }
     } else {
+      // Hiển thị popup lần đầu
       openPopup();
     }
+    // Sự kiện khi người dùng tương tác
+    let timeout;
+    document.addEventListener("mousemove", () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(openPopup, 3000);
+    });
+    document.addEventListener("touchstart", () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(openPopup, 3000);
+    });
+    checkAndShowPopup();
+    setInterval(checkAndShowPopup, 60000);
   }
-  // Sự kiện khi người dùng tương tác
-  let timeout;
-  document.addEventListener("mousemove", () => {
-    clearTimeout(timeout);
-    timeout = setTimeout(openPopup, 3000);
-  });
-  document.addEventListener("touchstart", () => {
-    clearTimeout(timeout);
-    timeout = setTimeout(openPopup, 3000);
-  });
 }
+
 handlePopup();
 
 // FORM VALIDATE
@@ -348,7 +358,6 @@ function sendForm() {
 }
 
 // HANDLE COOKIE BAR
-
 // Hàm để đặt cookie
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();

@@ -32,9 +32,13 @@
     <meta name="twitter:description" content="" />
     <meta name="twitter:image" content="" />
 
-    <style>
-      /* CSS Loading Here */
-    </style>
+    <script type="text/javascript">
+      var onloadCallback = function () {
+        grecaptcha.render("divRecaptcha", {
+          sitekey: "6LehdI0qAAAAAJx-YfCMKz7inI7x4IkeCrdkR-1W",
+        });
+      };
+    </script>
 
     <link rel="stylesheet" href="dest/style.min.css" />
     <link rel="stylesheet" href="dest/fonts.css" />
@@ -672,7 +676,7 @@
             </h2>
           </div>
           <form
-            action="#"
+            action="?"
             method="post"
             id="formgroup"
             class="formcontact col col-2"
@@ -736,9 +740,13 @@
             </div>
             <!-- button -->
             <div class="formgroup_input formgroup_input-button">
-              <button type="submit" class="btn btnsub">Submit now</button>
+              <button type="submit" value="Submit" class="btn btnsub">
+                Submit now
+              </button>
               <label class="formlabel" for="button">* Required</label>
             </div>
+            <!-- captcha -->
+            <div id="divRecaptcha" class="g-recaptcha"></div>
           </form>
         </div>
       </section>
@@ -993,6 +1001,8 @@
               <img src="./img/icons/i-arrow.svg" alt="i-arrow" />
             </button>
             <p class="form-error"></p>
+            <!-- captcha -->
+            <div id="divRecaptcha" class="g-recaptcha"></div>
           </form>
           <div class="iconsocial">
             <a href="https://www.facebook.com/"
@@ -1022,5 +1032,10 @@
     <!-- Javascript -->
     <script type="text/javascript" src="dest/jsmain.min.js"></script>
     <script type="text/javascript" src="dest/main.js"></script>
+    <script
+      src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+      async
+      defer
+    ></script>
   </body>
 </html>
