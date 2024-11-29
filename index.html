@@ -696,6 +696,7 @@
             <!-- email -->
             <div class="formgroup_input">
               <label class="formlabel" for="email">Email *</label>
+              <!-- email -->
               <input
                 type="text"
                 class="form__input"
@@ -991,6 +992,8 @@
           <h2 class="heading">Subscribe to get 10% OFF</h2>
           <p class="desc">Subscribe for store updates and discounts.</p>
           <form method="POST" id="from" class="formcontact">
+            <!-- captcha -->
+            <div id="divRecaptcha" class="g-recaptcha"></div>
             <input
               type="text"
               name="email"
@@ -1001,8 +1004,6 @@
               <img src="./img/icons/i-arrow.svg" alt="i-arrow" />
             </button>
             <p class="form-error"></p>
-            <!-- captcha -->
-            <div id="divRecaptcha" class="g-recaptcha"></div>
           </form>
           <div class="iconsocial">
             <a href="https://www.facebook.com/"
