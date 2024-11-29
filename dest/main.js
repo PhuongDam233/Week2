@@ -165,19 +165,19 @@ function handlePopup() {
       // Hiển thị popup lần đầu
       openPopup();
     }
-    // Sự kiện khi người dùng tương tác
-    let timeout;
-    document.addEventListener("mousemove", () => {
-      clearTimeout(timeout);
-      timeout = setTimeout(openPopup, 3000);
-    });
-    document.addEventListener("touchstart", () => {
-      clearTimeout(timeout);
-      timeout = setTimeout(openPopup, 3000);
-    });
-    checkAndShowPopup();
-    setInterval(checkAndShowPopup, 60000);
   }
+  // Sự kiện khi người dùng tương tác
+  let timeout;
+  document.addEventListener("mousemove", () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(openPopup, 3000);
+  });
+  document.addEventListener("touchstart", () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(openPopup, 3000);
+  });
+  checkAndShowPopup();
+  setInterval(checkAndShowPopup, 60000);
 }
 
 handlePopup();
