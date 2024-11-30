@@ -125,19 +125,9 @@ handleAccordion();
 // HANDLE POPUP
 function handlePopup() {
   const btnClose = document.querySelector(".popup__inner-close"),
-    btnShop = document.querySelector(".btnshop"),
-    popup = document.querySelector(".popup"),
-    sectabs = document.querySelector(".sctabs");
+    popup = document.querySelector(".popup");
 
   btnClose.addEventListener("click", closePopup);
-
-  btnShop.addEventListener("click", () => {
-    closePopup();
-    window.scrollTo({
-      top: sectabs.offsetTop,
-      behavior: "smooth",
-    });
-  });
 
   popup.addEventListener("click", closePopup);
   // Close popup

@@ -36,6 +36,11 @@
     font-size: var(--fs-text-s);
     line-height: var(--lh-text-s);
   }
+  &.--popup {
+    color: var(--black-cl);
+    font-size: var(--fs-popup);
+    line-height: var(--lh-popup);
+  }
 }
 .textlabel {
   font-size: var(--fs-textlabel);
