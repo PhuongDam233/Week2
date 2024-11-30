@@ -867,35 +867,35 @@
 }
 .cookie-bar {
   @include visible(0);
-
   position: fixed;
-
   @include transition;
+  background-color: rgba(255, 255, 255, 0.8);
   .container {
     display: flex;
     align-items: center;
-    flex-direction: column;
+    justify-content: space-between;
   }
   p {
     font-size: var(--fs-textlabel);
     line-height: var(--lh-textlabel);
   }
   .cookie-btn {
-    width: 100%;
-    margin-top: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 20px;
   }
   &.active {
     @include visible(1);
-    background-color: var(--gray-light-cl);
     color: var(--black-cl);
     padding: 10px;
     bottom: 0;
     left: 0;
-    max-width: 310px;
     width: 100%;
     z-index: 9000;
+  }
+  @include xs {
+    .cookie-btn {
+      flex-direction: column;
+    }
   }
 }

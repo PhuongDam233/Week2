@@ -136,15 +136,28 @@
   }
 }
 .btncookie {
-  width: 100%;
   height: var(--height-button-small);
+  padding: 0px 20px;
   cursor: pointer;
+  text-transform: uppercase;
   @include transition;
-  background-color: var(--black-cl);
-  color: var(--white-cl);
-  &:hover {
-    background-color: var(--white-cl);
+  font-family: pb;
+
+  &.accept-cookies {
+    background-color: var(--black-cl);
+    color: var(--white-cl);
+    &:hover {
+      color: var(--black-cl);
+      background-color: var(--white-cl);
+    }
+  }
+  &.reject-cookies {
+    background: none;
     color: var(--black-cl);
+    &:hover {
+      color: var(--white-cl);
+      background-color: var(--black-cl);
+    }
   }
 }
 // col
