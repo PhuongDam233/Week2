@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
   handleSliderProduct();
+  checkPopup();
   checkCookie();
-  handlePopup();
 });
 
 // RESIZE WINDOW
@@ -124,55 +124,72 @@ handleAccordion();
 
 // HANDLE POPUP
 function handlePopup() {
-  const btnClose = document.querySelector(".popup__inner-close"),
-    popup = document.querySelector(".popup");
+  const btnClose = document.querySelector(".closepopup"),
+    btnCloseSuccess = document.querySelector(".closepopupsuccess"),
+    popup = document.querySelector(".popup"),
+    popupSuccess = document.querySelector(".popup-success");
 
   btnClose.addEventListener("click", closePopup);
 
   popup.addEventListener("click", closePopup);
+  // btn close success
+  btnCloseSuccess.addEventListener("click", () => {
+    popupSuccess.classList.remove("active");
+  });
   // Close popup
   function closePopup() {
     popup.classList.remove("active");
     localStorage.setItem("popupClosedAt", Date.now());
   }
-  // add popup
-  function openPopup() {
-    popup.classList.add("active");
-  }
-  // Kiểm tra xem đã quá 4h kể từ lần hiển thị cuối cùng chưa
+}
 
-  function checkAndShowPopup() {
-    const lastClosedAt = localStorage.getItem("popupClosedAt");
-    const now = Date.now();
+handlePopup();
 
-    if (lastClosedAt) {
-      const timeDiff = now - parseInt(lastClosedAt);
-      if (timeDiff >= 4 * 60 * 60 * 1000) {
-        // 4 giờ = 4 * 60 * 60 * 1000 milliseconds
-        userContact();
-      }
-    } else {
-      // Hiển thị popup lần đầu
-      userContact();
+function checkPopup() {
+  const popup = document.querySelector(".popup");
+  const lastClosedAt = localStorage.getItem("popupClosedAt");
+  const now = Date.now();
+  if (lastClosedAt) {
+    const timeDiff = now - parseInt(lastClosedAt);
+    if (timeDiff >= 4 * 60 * 60 * 1000) {
+      // 4 giờ = 4 * 60 * 60 * 1000 milliseconds
+      localStorage.removeItem("popupClosedAt");
     }
+  } else {
+    // Hiển thị popup lần đầu
+    userContact();
   }
-  // Sự kiện khi người dùng tương tác
   function userContact() {
     let timeout;
     document.addEventListener("mousemove", () => {
       clearTimeout(timeout);
-      timeout = setTimeout(openPopup, 3000);
+      timeout = setTimeout(function () {
+        popup.classList.add("active");
+      }, 3000);
     });
     document.addEventListener("touchstart", () => {
       clearTimeout(timeout);
-      timeout = setTimeout(openPopup, 3000);
+      timeout = setTimeout(function () {
+        popup.classList.add("active");
+      }, 3000);
     });
   }
-  checkAndShowPopup();
-  setInterval(checkAndShowPopup, 60000);
+  // let value = getCookie("timeDiff");
+  // if (value !== "") {
+  //   userContact();
+  // } else {
+  //   popup.classList.remove("active");
+  // }
+  // const cookies = document.cookie.split(";");
+  // for (let i = 0; i < cookies.length; i++) {
+  //   const cookie = cookies[i].trim();
+  //   if (cookie.startsWith("timeDiff")) {
+  //     popup.classList.remove("active");
+  //     return true;
+  //   }
+  // }
+  // return false;
 }
-
-handlePopup();
 
 // FORM VALIDATE
 function Validator(options) {
@@ -334,6 +351,9 @@ Validator({
 
 // SEND EMAIL TO EXCEL
 function sendForm() {
+  const popupSuccess = document.querySelector(".popup-success"),
+    btnCloseS = document.querySelector(".popup__inner-close");
+
   var $form = $("form"),
     url =
       "https://script.google.com/macros/s/AKfycbwBstL25AahbiFJ3duU9fWGxcNhHr49NT7XYGOXpyyolcgCGWZ2OITTVOjnJc5KDOoLHQ/exec";
@@ -344,7 +364,7 @@ function sendForm() {
     data: $form.serialize(),
   }).done(function () {
     {
-      alert("Gửi form thành công");
+      popupSuccess.classList.add("active");
     }
   });
 }
@@ -380,9 +400,9 @@ function checkCookie() {
   let value = getCookie("cookieConsent");
   if (value !== "") {
     // Nếu đã đồng ý, ẩn cookie bar
-    document.querySelector(".cookie-bar").classList.add("active");
+    document.querySelector(".cookie-bar").classList.remove("active"); // Cookie đã tồn tại, không hiển thị
   } else {
-    document.querySelector(".cookie-bar").classList.remove("active");
+    document.querySelector(".cookie-bar").classList.add("active"); // Cookie chưa tồn tại, hiển thị cookie bar
   }
 }
 function handleCookieBar() {

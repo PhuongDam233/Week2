@@ -302,6 +302,39 @@
     }
   }
 }
+.popup__inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  display: flex;
+  background-color: var(--white-cl);
+  &-close {
+    position: absolute;
+    cursor: pointer;
+    right: 14px;
+    top: 10px;
+    border: 1px solid var(--border-bottom-accordion-cl);
+    border-radius: 100%;
+    @include size(48px, 48px);
+    @include transition;
+    img {
+      @include mid;
+    }
+    &:hover {
+      background-color: var(--background-contact-cl);
+      border: 1px solid var(--gray-cl);
+    }
+  }
+  &-content {
+    .title {
+      font-size: var(--fs-text-s);
+      line-height: var(--lh-text-s);
+      font-family: lr;
+    }
+  }
+}
 // From
 .formcontact {
   width: 100%;
