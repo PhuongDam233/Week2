@@ -2,6 +2,7 @@ window.addEventListener("load", function () {
   handleSliderProduct();
   checkPopup();
   checkCookie();
+  loadFormContact();
 });
 
 // RESIZE WINDOW
@@ -240,19 +241,7 @@ function Validator(options) {
             return (value[input.name] = input.value) && value;
           },
           {});
-          let body = JSON.stringify({
-            name: formValue.name,
-            email: formValue.email,
-            phone: formValue.phone,
-            address: formValue.address,
-          });
-          const storedData = JSON.parse(localStorage.getItem("formData"));
-          if (storedData) {
-            formValue.name = storedData.name;
-            formValue.email = storedData.email;
-            formValue.phone = storedData.phone;
-            formValue.address = storedData.address;
-          }
+          options.onsubmit(formValue);
         }
         // Gửi email đến file excel khi validate thành công
         sendForm();
@@ -325,15 +314,27 @@ Validator({
     Validator.isRequired("#address"),
     Validator.isRequired("#message"),
   ],
-  onsubmit: function (data) {
+  onsubmit: function (formValue) {
+    let formData = JSON.stringify({
+      name: formValue.name.trim(),
+      email: formValue.email.trim(),
+      phone: formValue.phone.trim(),
+      address: formValue.address.trim(),
+    });
     fetch("https://testapi.demo.wgentech.com/notify.php", {
-      body,
+      body: formData,
       method: "POST",
       keepalive: true,
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        if (data.success) {
+          console.log(formData);
+          // Lưu thông tin vào Local Storage
+          localStorage.setItem("dataUser", formData);
+          document.getElementById("formgroup").reset();
+        }
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -348,6 +349,18 @@ Validator({
   rules: [Validator.isEmail("#emailfooter")],
   // onsubmit: sendForm(),
 });
+
+function loadFormContact() {
+  const storedData = localStorage.getItem("dataUser");
+  if (storedData) {
+    let arr = JSON.parse(storedData);
+    document.getElementById("name").value = arr.name;
+    document.getElementById("email").value = arr.email;
+    document.getElementById("phone").value = arr.phone;
+    document.getElementById("address").value = arr.address;
+    console.log(arr);
+  }
+}
 
 // SEND EMAIL TO EXCEL
 function sendForm() {
