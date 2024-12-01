@@ -366,3 +366,24 @@
     right: 100%;
   }
 }
+// CUSTOM SCROLLBAR
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  @include transition;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--gray-input-cl);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--text-carousel-cl);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-cl);
+}
