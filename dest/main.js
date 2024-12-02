@@ -1,4 +1,5 @@
 window.addEventListener("load", function () {
+  scrollAnimation();
   handleSliderProduct();
   checkPopup();
   checkCookie();
@@ -30,7 +31,7 @@ function scrollToSection() {
     section = document.querySelector(".sctabs");
   btn.addEventListener("click", function () {
     window.scrollTo({
-      top: section.offsetTop,
+      top: section.offsetTop + 50,
       behavior: "smooth",
     });
   });
@@ -438,10 +439,63 @@ handleCookieBar();
 
 // LENIS
 // Initialize Lenis
-const lenis = new Lenis({
-  autoRaf: true,
-});
-// Listen for the scroll event and log the event data
-lenis.on("scroll", (e) => {
-  console.log(e);
-});
+function scrollAnimation() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: "vertical",
+    gestureDirection: "vertical",
+    smooth: true,
+    smoothTouch: false,
+    mouseMultiplier: 1,
+    touchMultiplier: 2,
+    infinity: false,
+  });
+  // Use requestAnimationFrame to continuously update the scroll
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // let tl = gsap
+  //   .timeline({
+  //     // yes, we can add it to an entire timeline!
+  //     scrollTrigger: {
+  //       trigger: ".article__list-item",
+  //       scrub: true,
+  //     },
+  //   })
+  //   .to(".article__list-item", {
+  //     stagger: 0.2,
+  //     y: -150,
+  //     scrub: "labels",
+  //   });s
+  const section2 = document.getElementById("horizontal");
+  let box_items = gsap.utils.toArray(".swiper-slide");
+
+  gsap.to(box_items, {
+    xPercent: -50 * (box_items.length - 1),
+    ease: "sine.out",
+    scrollTrigger: {
+      trigger: section2,
+      pin: true,
+      scrub: 3,
+      snap: 1 / (box_items.length - 1),
+      end: "+=" + section2.offsetWidth,
+    },
+  });
+
+  gsap.to(".schero", {
+    yPercent: 50,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".sctabs",
+      start: "top bottom",
+      end: "top top",
+      scrub: true,
+    },
+  });
+}

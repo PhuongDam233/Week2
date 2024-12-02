@@ -1,4 +1,6 @@
 .schero {
+  position: relative;
+  z-index: 1;
   .textbox {
     @include midPositonX;
     @include size(100%, 100%);
@@ -16,8 +18,17 @@
       width: 100%;
     }
   }
+  @include maxW(2560px) {
+    top: -85px;
+  }
+  @include maxW(2559.98px) {
+    top: initial;
+  }
 }
 .sctabs {
+  position: relative;
+  z-index: 10;
+  background: #ffff;
   padding-top: 100px;
   .textbox {
     padding-bottom: 40px;
@@ -58,6 +69,7 @@
     }
   }
   .sctabs__wrap {
+    // padding-top: 150px;
     .article__list {
       display: none;
       grid-template-columns: repeat(12, 1fr);
@@ -136,7 +148,7 @@
       .article__list {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(1, 1fr);
-        row-gap: 25px;
+        row-gap: 17px;
         &-item {
           &:nth-child(1) {
             grid-column: 1/3;

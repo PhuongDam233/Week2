@@ -370,7 +370,6 @@
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
-  @include transition;
 }
 
 /* Track */
